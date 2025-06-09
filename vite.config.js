@@ -11,7 +11,7 @@ const libConfig = {
   build: {
     lib: {
       entry: resolve(__dirname, './src'),
-      name: 'be-ui',
+      name: projectName,
       fileName: (format) => `${projectName}.${format}.js`,
     },
     rollupOptions: {
@@ -32,7 +32,7 @@ const libConfig = {
 
 const docsConfig = {
   root: './demo',
-  base: process.env.NODE_ENV === 'production' ? '/beui/' : '/',
+  base: process.env.NODE_ENV === 'production' ? `/${projectName}/` : '/',
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
