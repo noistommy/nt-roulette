@@ -1,0 +1,35 @@
+{
+  "name": "nt-roulette",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "",
+  "module": "",
+  "exports": {
+    ".": {
+      "import": "",
+      "require": ""
+    }
+  },
+  "scripts": {
+    "dev": "MODE=demo vite",
+    "build": "npm run build:code",
+    "build:code": "MODE=lib vite build",
+    "build:demo": "MODE=demo vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "eslint": "^9.28.0",
+    "eslint-plugin-vue": "^10.2.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.1",
+    "vite": "^6.3.5",
+    "vite-plugin-vue-devtools": "^7.7.6"
+  }
+}
