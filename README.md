@@ -1,4 +1,4 @@
-nt-number-puzzle
+nt-roulette
 ==================
 
 ![Static Badge](https://img.shields.io/badge/vue_3-only-%234FC08D?style=for-the-badge)
@@ -7,39 +7,44 @@ nt-number-puzzle
 ![Static Badge](https://img.shields.io/badge/sass-%23CC6699?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/vite-bundler-%23646CFF?style=for-the-badge)
 
-![nt-number-puzzle-preview](https://github.com/noistommy/nt-number-puzzle/assets/6008185/850e8fef-71ed-4be3-a2aa-72f2271e5635)
-![nt-number-puzzle-preview2](https://github.com/noistommy/nt-number-puzzle/assets/6008185/f3e5fb67-0125-451a-8662-e7b7fc97c930)
+![nt-roulette-preview](https://github.com/user-attachments/assets/8723db32-002c-44f4-b385-4636f326c481)
+
+![nt-roulette-preview-setting](https://github.com/user-attachments/assets/f2009354-92e8-4549-aab8-a796950814a2)
 
 
-`nt-number-puzzle` is a module that implements the retro game **numeric puzzle** as `vue` (vue components). Why don't you try to provide simple entertainment for users when developing a personal project or use it for users who are bored while loading long and long data?
-
-`nt-number-puzzle`은 레트로 게임인 **숫자 퍼즐**을 `vue`(vue components)로 구현한 모듈입니다. 개인프로젝트 개발 시 사용자를 위한 간단한 즐길거리를 제공하려 하거나 길고 긴 데이터 로딩 중 심심한 사용자들을 위해 사용해 보는것은 어떨까요??
+`nt-roulette`은 SVG를 이용하여 구현된 룰렛판입니다. 디테일한 애니메이션을 적용하여 실제 룰렛 움직임과 흡사하게 동작하도록 제작 되었습니다. 사용자가 2~45개의 룰렛 조각을 설정 할 수 있으며 1. 실행 시 (running state) 마다 랜덤한 결과를 만들어냅니다. 2. 실행 이후 사용자가 멈출 수 있으며 (stop state) 멈추었을떄 화살표가 위치한 조작을 결과로 보여줍니다. 3. 또한 각 조각을 선택해서 결과를 보여 줄 수도 있습니다. 추가 설정으로 각 조각의 배경 컬러 패턴을 지정 할 수있습니다. 
+선택이 필요한 UI에 사용하면 보다 역동적인 사이트가 되지 않을까요??    
 
 ---
 ## Demo
 
-[nt-number-puzzle](https://noistommy.github.io/nt-number-puzzle) demo page.
+[nt-roulette](https://noistommy.github.io/nt-roulette) demo page.
 
 ---
 ## Installation
 
 ```sh
- $ npm install nt-number-puzzle —-save
+ $ npm install nt-roulette —-save
 ```
 ---
 ## Usage
 
 ```javascript
-import NtNumberPuzzle from 'nt-number-puzzle';
-import 'nt-number-puzzle/number-puzzle.css';
+import NtRoulette from 'nt-roulette';
 
 //template
 //user`s source
 ...
-<NtNumberPuzzle
-  :grid-size="4" // default: 4
-  :cell-size="4" // default: 4(rem)
-  label-text = "..."
+<NtRoulette
+  :data="[]" // default: 4
+  :hole-size="0" // default: 4(rem)
+  :text-info = "{
+    size: 5,
+    weight: 600,w
+    color: #444
+  }"
+  :colors="['#ffffff', ...]"
+  state="running"
 />
 
 ```
@@ -47,25 +52,19 @@ import 'nt-number-puzzle/number-puzzle.css';
 
 ## Props
 
-* **gridSize**: _number_ ▶︎ `4`    
-Set the vertical/horizontal size of tile grid.
+* **data**: _array_ ▶︎ `null`    
+data array의 크기에 따라 룰렛 조각의 수가 결정된다.
 
-* **cellSize**: _number_ ▶︎ `4`   
-Setting the size of tiles(unit rem).
+* **holeSize**: _number_ ▶︎ `0`   
+룰렛을 도넷 형태로 만들기 위한 중앙 원의 크기
 
-* **labelText**: _string_ ▶︎ `''`   
-Setting letters to display tiles.
+* **textInfo**: _object_ ▶︎ `{}`   
+룰렛에 표시 되는 텍스트 스타일 (font-size, font-weight, color)
 
----
+* **colors**: _array_ ▶︎ `[]`   
+룰렛 조각의 배경 색상 목록 목록의 색상을 순서대로 표시하며 목록을 반복하며 색상 패턴을 만든다.
 
-## How to play
+* **state**: _string_ ▶︎ `pause`   
+룰렛 실행을 위한 상태. running: 실행, pause: 정지, reset: 초기화
 
-* Click the `START` button to start game.
-* Click to move up, down, left, and right tiles of empty tiles.
-* Place the tiles in order.
-* When all the tiles are placed in order, the game ends.
-* You can specify the tiles to move by pressing the `top`, `bottom`, `left`, and `right` keys on the keyboard.
-* You can move an active tile by pressing the `space` key.
-* Press the `ctrl` key to display the order of the tiles.
-* If you click the `RETRY` button during the game, the tiles will mix and restart the game.
 ---
