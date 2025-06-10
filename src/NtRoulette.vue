@@ -211,7 +211,7 @@ watch(() => props.state, (value) => {
     <!-- roulette circle -->
     <path :d="getRoulettePath()" fill-rule="evenodd" clip-rule="evenodd" :fill="roulette_color" stroke="#fff" stroke-width="1" />
     <g ref="rouletteRef" id="roulette" :class="{rev: reverse}">
-      <g v-for="(item, i) in sectorLength" :key="`section-${item}`" :transform="calcAngle(i) " class="sector-item"
+      <g v-for="(item, i) in data" :key="`section-${item}`" :transform="calcAngle(i) " class="sector-item"
         :class="{select: selectedItem === i}"
         @mousedown="stopRoulette"
         @mouseup="setRoulette(i)"
@@ -222,7 +222,7 @@ watch(() => props.state, (value) => {
           :font-size="textInfo.size" :font-weight="textInfo.weight"   :fill="textInfo.color"
           :transform="`rotate(${-90}, ${calcTextPos(0).x}, ${calcTextPos(0).y} )`"
         >
-          {{ i + 1 }}
+          {{ item.title }}
         </text>
       </g>
     </g>

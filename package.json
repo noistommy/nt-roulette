@@ -1,16 +1,27 @@
 {
   "name": "nt-roulette",
-  "private": true,
-  "version": "0.1.0",
+  "private": false,
+  "version": "0.1.1",
   "type": "module",
-  "main": "",
-  "module": "",
+  "main": "./dist/nt-roulette.umd.js",
+  "module": "./dist/nt-roulette.es.js",
   "exports": {
     ".": {
-      "import": "",
-      "require": ""
+      "import": "./dist/nt-roulette.es.js",
+      "require": "./dist/nt-roulette.umd.js"
     }
   },
+  "files": ["dist", "src"],
+  "bugs": "https://github.com/noistommy/nt-roulette/issues",
+  "homepage": "https://github.com/noistommy/nt-roulette#reaadme",
+  "keywords": [
+    "vue",
+    "game",
+    "roulette",
+    "component",
+    "game",
+    "casino"
+  ],
   "scripts": {
     "dev": "MODE=demo vite",
     "build": "npm run build:code",
