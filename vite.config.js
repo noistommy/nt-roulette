@@ -39,9 +39,9 @@ const docsConfig = {
       '@': fileURLToPath(new URL('./demo/src', import.meta.url)),
     },
   },
-  // server: {
-  //   port: 5179,
-  // },
+  server: {
+    port: 5196,
+  },
 }
 
 // https://vite.dev/config/
