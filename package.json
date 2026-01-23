@@ -1,7 +1,7 @@
 {
   "name": "nt-roulette",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "main": "./dist/nt-roulette.umd.js",
   "module": "./dist/nt-roulette.es.js",
@@ -11,7 +11,10 @@
       "require": "./dist/nt-roulette.umd.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "bugs": "https://github.com/noistommy/nt-roulette/issues",
   "homepage": "https://github.com/noistommy/nt-roulette#reaadme",
   "keywords": [
